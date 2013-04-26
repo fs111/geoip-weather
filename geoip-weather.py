@@ -1,18 +1,25 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 import requests
 
+# returns the external IP as simple text
 IP_URL = 'http://ip.telize.com/'
 
+
+# geoip service, which translates the IP to a location
 GEOIP_URL = 'http://freegeoip.net/json/%s'
 
+# weather service based on location
 WEATHER_URL = 'http://api.openweathermap.org/data/2.5/weather?q=%s,%s'
 
+# temperatures in the weather service are stored in Kelvin, in order to get 
+# Celcius, we have to substract this costant.
+# see here: http://bugs.openweathermap.org/projects/api/wiki/Weather_Data
 KELVIN_CONSTANT = 273.15
 
 
 def main():
+    """main method of the program"""
 
     ipresponse = requests.get(IP_URL)
     ip = ipresponse.text
