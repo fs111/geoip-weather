@@ -1,10 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+Quick script to show the current weather on the commandline. Based on geoip.
+
+Author: André Kelpe <efeshundertelf@googlemail.com>
+License: MIT
+
+"""
 import requests
 
 # returns the external IP as simple text
 IP_URL = 'http://ip.telize.com/'
-
 
 # geoip service, which translates the IP to a location
 GEOIP_URL = 'http://freegeoip.net/json/%s'
