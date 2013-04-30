@@ -24,6 +24,12 @@ WEATHER_URL = 'http://api.openweathermap.org/data/2.5/weather?q=%s,%s'
 KELVIN_CONSTANT = 273.15
 
 
+SYMBOLS = { 
+           "Clouds" : u"\u2601" * 3,
+           "Rain"  : u"\u2614" * 3,
+           "Clear"  : u"\u2600" * 3
+          }
+
 def main():
     """main method of the program"""
 
@@ -40,7 +46,12 @@ def main():
     
     temp = weather_info['main']['temp'] - KELVIN_CONSTANT
 
-    print "%s(%s): %3.1fC " % (city, country_code, temp)
+    main_weather = weather_info['weather'][0]['main']
+    description = weather_info['weather'][0]['description']
+
+    symbol = SYMBOLS.get(main_weather, "")
+
+    print "%s(%s): %s %s, %3.1fC " % (city, country_code, description, symbol, temp)
 
 if __name__ == '__main__':
     main()
