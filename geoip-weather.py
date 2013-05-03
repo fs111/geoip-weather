@@ -51,7 +51,7 @@ def main():
 
     symbol = SYMBOLS.get(main_weather, "")
 
-    print "%s(%s): %s %s, %3.1fC " % (city, country_code, description, symbol, temp)
+    print "%s(%s): %s %s, %3.1fC " % (weather_info['name'], country_code, description, symbol, temp)
 
 if __name__ == '__main__':
     main()
